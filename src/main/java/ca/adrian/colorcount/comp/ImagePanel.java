@@ -26,19 +26,16 @@ public class ImagePanel extends JPanel{
     
     public ImagePanel() {
         super();
-        
         Properties prop = new Properties();
-        //try {
-            System.out.println(new File(".").getAbsolutePath());
-//            prop.load();
-       // } catch (IOException ioe) {
-          //  DisplayError.error("Error Loading Properties",ioe);
-        //}
-  //      size = Integer.parseInt(prop.getProperty("SIZE"));
-    //    gap = Integer.parseInt(prop.getProperty("GAP"));
-      
-        
-        
+        try {
+            prop.load(ImagePanel.class.getResourceAsStream("config.properties"));
+        } catch (IOException ioe) {
+            DisplayError.error("Error Loading Properties",ioe);
+        }
+        size = Integer.parseInt(prop.getProperty("SIZE"));
+        gap = Integer.parseInt(prop.getProperty("GAP"));
+        System.out.println("Tile Size = "+size);
+        System.out.println("Gap Between Tiles = "+gap);
         this.setSize(768, 768);
         this.setPreferredSize(new Dimension(768, 768));
     }
@@ -67,7 +64,7 @@ public class ImagePanel extends JPanel{
                 grandTotal = grandTotal + tile.getCount();
             }
             System.out.println("Number of Total Tiles = "+ grandTotal);
-            System.out.println("Number of Colors = "+ tiles.size());
+            System.out.println("Number of Colors = "+ tiles.size());            
             countPanel.setCounts(tiles);
             this.repaint();
         }

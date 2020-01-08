@@ -86,7 +86,6 @@ public class MainWindow extends JFrame {
     }
     
    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        System.out.println("Open");
         File imageFile = GuiUtils.loadFileChoose(new JDialog(), "png", "Load tile image (*.png)");        
         if (imageFile.exists()) {
             countPanel.setCounts(new ArrayList<Tile>());
@@ -96,7 +95,6 @@ public class MainWindow extends JFrame {
     }                                          
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        System.out.println("Quit");        
         System.exit(0);
     }                                                  
 }
