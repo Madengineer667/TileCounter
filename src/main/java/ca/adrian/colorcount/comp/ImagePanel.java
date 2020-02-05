@@ -5,6 +5,7 @@
  */
 package ca.adrian.colorcount.comp;
 
+import ca.adrian.colorcount.MainApp;
 import ca.adrian.colorcount.entity.Tile;
 import ca.adrian.util.DisplayError;
 import java.awt.Dimension;
@@ -28,7 +29,7 @@ public class ImagePanel extends JPanel{
         super();
         Properties prop = new Properties();
         try {
-            prop.load(ImagePanel.class.getResourceAsStream("config.properties"));
+            prop.load(MainApp.class.getResourceAsStream("config.properties"));
         } catch (IOException ioe) {
             DisplayError.error("Error Loading Properties",ioe);
         }
@@ -36,8 +37,8 @@ public class ImagePanel extends JPanel{
         gap = Integer.parseInt(prop.getProperty("GAP"));
         System.out.println("Tile Size = "+size);
         System.out.println("Gap Between Tiles = "+gap);
-        this.setSize(768, 768);
-        this.setPreferredSize(new Dimension(768, 768));
+        setSize(768, 768);
+        setPreferredSize(new Dimension(768, 768));
     }
 
     public void load(File file, CountPanel countPanel) {

@@ -105,8 +105,8 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/java/ca/adrian/colorcount/comp</directory>
-                <targetPath>ca/adrian/colorcount/comp</targetPath>
+                <directory>src/main/java/ca/adrian/colorcount</directory>
+                <targetPath>ca/adrian/colorcount</targetPath>
                 <includes>
                     <include>**/*.properties</include>
                 </includes>

@@ -22,8 +22,8 @@ public class CountPanel extends JPanel {
     
     public CountPanel() {
         super();
-        this.setSize(256, 768);
-        this.setPreferredSize(new Dimension(256, 768));
+        setSize(new Dimension(256, 768));
+        setPreferredSize(new Dimension(256, 768));
     }
     
     @Override
@@ -60,6 +60,4 @@ public class CountPanel extends JPanel {
         this.counts = counts;
         this.repaint();
     }
-    
-    
 }

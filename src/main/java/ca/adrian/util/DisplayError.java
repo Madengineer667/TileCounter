@@ -35,7 +35,6 @@ public class DisplayError extends JOptionPane {
                 logWriter = new PrintStream(new FileOutputStream(logName, true));
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(comp,e.toString(),"Log Error - Opening Log File",JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
             }
             logWriter.println("["+rightNow.getTime()+"]:"+error);
             ex.printStackTrace(logWriter);

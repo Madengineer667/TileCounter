@@ -1,5 +1,6 @@
 package ca.adrian.util;
 
+import ca.adrian.colorcount.MainApp;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -9,8 +10,12 @@ import java.awt.Window;
 import java.io.File;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import java.net.URL;
+import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -98,9 +103,11 @@ public final class GuiUtils {
     }
     
     public static File loadFileChoose(Component comp, String extension, String description) {
+        URL jarPath = MainApp.class.getProtectionDomain().getCodeSource().getLocation();
+        String filePath = jarPath.getPath().substring(0, jarPath.getPath().lastIndexOf("/"));
         int returnVal = 0;
         File loadFile = null;
-        JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser(filePath);
         chooser.setAcceptAllFileFilterUsed(false);
         FileNameExtensionFilter filter = new FileNameExtensionFilter(description, extension);
         chooser.setFileFilter(filter);
